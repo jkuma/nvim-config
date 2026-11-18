@@ -3,7 +3,7 @@ return {
   version = "1.*",
   dependencies = { "rafamadriz/friendly-snippets" },
   opts = {
-    keymap = { preset = "default" },
+    keymap = { preset = "super-tab" },
     completion = { documentation = { auto_show = true } },
     signature = { enabled = true },
     sources = {

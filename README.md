@@ -89,10 +89,10 @@ The leader is `Space`: press it and wait for a menu of every binding.
 
 | Binding | Action |
 |---|---|
-| `Ctrl-n` / `Ctrl-p` | Next / previous item |
-| `Ctrl-y` | Accept |
+| `↓` / `↑` or `Ctrl-n` / `Ctrl-p` | Next / previous item |
+| `Tab` | Accept the highlighted item, else jump to the next snippet field |
+| `Shift-Tab` | Previous snippet field |
 | `Ctrl-Space` / `Ctrl-e` | Open / close the menu |
-| `Tab` / `Shift-Tab` | Next / previous snippet field |
 
 ### Git and windows
 
