@@ -66,6 +66,9 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | `Space f b` / `f o` | Open buffers / recent files |
 | `Space f d` / `f h` / `f k` | Diagnostics / help / key bindings |
 | `Space f r` | Resume the last search |
+| `Space f p` | Searches of the session, reopened with their results |
+| `Ctrl-s` (in grep) | Cycle case: smart / sensitive / ignore |
+| `Ctrl-↑` / `Ctrl-↓` (in a search) | Previous / next query, kept across sessions |
 
 ### Code
 
