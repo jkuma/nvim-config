@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 
 map("i", "jk", "<Esc>")
-map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- [ and ] need AltGr+Shift on a French Mac layout
 map({ "n", "x", "o" }, "ç", "[", { remap = true, desc = "Previous ([)" })
