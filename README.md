@@ -61,6 +61,7 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | Binding | Action |
 |---|---|
 | `-` | File explorer on the current directory (edit names, then `:w`) |
+| `Space e` | File tree on the left, opened on the current file |
 | `Space Space` | Find files |
 | `Space f g` / `f w` | Grep the project / the word under the cursor |
 | `Space f b` / `f o` | Open buffers / recent files |

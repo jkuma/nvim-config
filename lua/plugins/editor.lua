@@ -35,6 +35,16 @@ return {
     keys = { { "-", "<cmd>Oil<CR>", desc = "Parent directory" } },
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    keys = { { "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", desc = "File tree" } },
+    opts = {
+      hijack_netrw = false,
+      hijack_directories = { enable = false },
+      update_focused_file = { enable = true },
+      view = { width = 35 },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = {
