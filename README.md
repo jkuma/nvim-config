@@ -70,6 +70,7 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | `Space f p` | Searches of the session, reopened with their results |
 | `Ctrl-s` (in grep) | Cycle case: smart / sensitive / ignore |
 | `Ctrl-↑` / `Ctrl-↓` (in a search) | Previous / next query, kept across sessions |
+| `Space r` (in Visual mode) | Replace the selection everywhere in the file: type the new text, then `Enter` |
 
 ### Code
 
