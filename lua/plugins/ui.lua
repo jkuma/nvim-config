@@ -1,11 +1,30 @@
+local theme_file = vim.fn.stdpath("state") .. "/theme.json"
+
+local function apply_saved_theme()
+  local ok, saved = pcall(function() return vim.json.decode(vim.fn.readfile(theme_file)[1]) end)
+  if ok and saved.background then
+    vim.o.background = saved.background
+  end
+  if not (ok and pcall(vim.cmd.colorscheme, saved.colorscheme)) then
+    vim.cmd.colorscheme("tokyonight-night")
+  end
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function()
+      local theme = { colorscheme = vim.g.colors_name, background = vim.o.background }
+      vim.fn.writefile({ vim.json.encode(theme) }, theme_file)
+    end,
+  })
+end
+
 return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("tokyonight-night")
-    end,
+    config = apply_saved_theme,
   },
+  { "ellisonleao/gruvbox.nvim", lazy = true },
+  { "nickkadutskyi/jb.nvim", lazy = true },
+  { "xiantang/darcula-dark.nvim", lazy = true },
   {
     "nvim-mini/mini.nvim",
     config = function()
@@ -25,24 +44,6 @@ return {
         { "<leader>g", group = "Git" },
         { "<leader>t", group = "Toggles" },
       },
-    },
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      on_attach = function(buf)
-        local gs = require("gitsigns")
-        local map = function(lhs, rhs, desc)
-          vim.keymap.set("n", lhs, rhs, { buffer = buf, desc = desc })
-        end
-        map("]h", function() gs.nav_hunk("next") end, "Next hunk")
-        map("[h", function() gs.nav_hunk("prev") end, "Previous hunk")
-        map("<leader>gp", gs.preview_hunk, "Preview hunk")
-        map("<leader>gs", gs.stage_hunk, "Stage hunk")
-        map("<leader>gr", gs.reset_hunk, "Reset hunk")
-        map("<leader>gb", gs.blame_line, "Blame line")
-        map("<leader>gd", gs.diffthis, "Diff file")
-      end,
     },
   },
 }

@@ -19,6 +19,7 @@ The first launch installs the plugins, language servers, formatters and Treesitt
 - Neovim ≥ 0.12, git, curl, unzip, make and a C compiler
 - [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter) to build parsers
 - [ripgrep](https://github.com/BurntSushi/ripgrep) and [fd](https://github.com/sharkdp/fd) for search
+- [tig](https://jonas.github.io/tig/) to open commits
 - npm for the TypeScript tooling
 - Go, and Rust with `rustfmt`, `clippy` and the standard library sources
 - A [Nerd Font](https://www.nerdfonts.com/) selected in the terminal
@@ -27,7 +28,7 @@ The first launch installs the plugins, language servers, formatters and Treesitt
 On Arch Linux:
 
 ```sh
-sudo pacman -S --needed neovim tree-sitter-cli ripgrep fd npm go rust rust-src ttf-jetbrains-mono-nerd
+sudo pacman -S --needed neovim tree-sitter-cli ripgrep fd tig npm go rust rust-src ttf-jetbrains-mono-nerd
 ```
 
 ## Layout
@@ -36,7 +37,7 @@ sudo pacman -S --needed neovim tree-sitter-cli ripgrep fd npm go rust rust-src t
 |---|---|
 | `init.lua` | Leader key, loads the modules below |
 | `lua/config/` | Options, key bindings, autocommands, plugin manager bootstrap |
-| `lua/plugins/` | One file per area: `ui`, `editor`, `treesitter`, `lsp`, `completion`, `format` |
+| `lua/plugins/` | One file per area: `ui`, `editor`, `git`, `treesitter`, `lsp`, `completion`, `format` |
 | `after/ftplugin/` | Per-language settings |
 
 ## Languages
@@ -86,6 +87,8 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | `Space c d` | Diagnostic of the current line |
 | `Space c f` | Format |
 | `Space t f` / `t h` | Toggle format on save / inlay hints |
+| `Space t c` | Colour theme picker with live preview (tokyonight variants, gruvbox, JetBrains-like `jb` and `darcula-dark`); the choice is kept across sessions |
+| `Space t b` | Switch between dark and light background, also kept |
 
 ### Completion
 
@@ -101,6 +104,8 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | Binding | Action |
 |---|---|
 | `Space g p` / `g s` / `g r` | Preview / stage / reset hunk |
-| `Space g b` / `g d` | Blame line / diff file |
+| `Space g b` | Author of every line in a side column, coloured by age with the theme's colours: yellow this week, green this month, teal under 6 months, blue under a year, grey older (`t` opens the commit in tig, `:q` closes) |
+| `Space g B` / `g d` | Blame the current line / diff file |
+| `Space g t` | Commit of the current line in tig (`q` closes) |
 | `Ctrl-h/j/k/l` | Move between windows |
 | `Space w` / `Space q` | Save / quit |

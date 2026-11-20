@@ -11,13 +11,8 @@ return {
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
-      "saghen/blink.cmp",
     },
     config = function()
-      vim.lsp.config("*", {
-        capabilities = require("blink.cmp").get_lsp_capabilities(),
-      })
-
       vim.lsp.config("gopls", {
         settings = {
           gopls = {

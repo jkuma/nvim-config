@@ -14,6 +14,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "Right window" })
 map("n", "<leader>w", "<cmd>write<CR>", { desc = "Save" })
 map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostic" })
+map("n", "<leader>tb", function() vim.o.background = vim.o.background == "dark" and "light" or "dark" end, { desc = "Light or dark background" })
 
 local function search_selection()
   local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
