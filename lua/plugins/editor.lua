@@ -62,11 +62,6 @@ return {
       { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
       { "<leader>fr", "<cmd>Telescope resume<CR>", desc = "Resume last search" },
       { "<leader>fp", "<cmd>Telescope pickers<CR>", desc = "Previous searches" },
-      {
-        "<leader>tc",
-        function() require("telescope.builtin").colorscheme({ enable_preview = true, ignore_builtins = true }) end,
-        desc = "Colour theme",
-      },
     },
     config = function()
       local actions = require("telescope.actions")

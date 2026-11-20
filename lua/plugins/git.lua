@@ -52,7 +52,10 @@ local function repeat_blame_authors(buf)
     if author and not line:find(" ") then
       local hl
       for _, m in ipairs(vim.api.nvim_buf_get_extmarks(buf, -1, { i - 1, 0 }, { i - 1, 0 }, { details = true })) do
-        hl = hl or (m[4].end_row == i - 1 and m[4].hl_group) or nil
+        if m[4].end_row == i - 1 and m[4].hl_group then
+          hl = m[4].hl_group
+          break
+        end
       end
       vim.api.nvim_buf_set_extmark(buf, blame_ns, i - 1, 0, { virt_text = { { author, hl } }, virt_text_win_col = 2 })
     end

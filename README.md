@@ -87,7 +87,7 @@ The leader is `Space`: press it and wait for a menu of every binding.
 | `Space c d` | Diagnostic of the current line |
 | `Space c f` | Format |
 | `Space t f` / `t h` | Toggle format on save / inlay hints |
-| `Space t c` | Colour theme picker with live preview (tokyonight variants, gruvbox, JetBrains-like `jb` and `darcula-dark`); the choice is kept across sessions |
+| `Space t c` | Colour theme picker with live preview: tokyonight (night, storm, moon, day), JetBrains-like `jb` and `darcula-dark`, `darcula-solid`, `dracula`, `gruvbox`; the choice is kept across sessions |
 | `Space t b` | Switch between dark and light background, also kept |
 
 ### Completion
