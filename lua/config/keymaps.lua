@@ -15,9 +15,26 @@ map("n", "<leader>w", "<cmd>write<CR>", { desc = "Save" })
 map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostic" })
 
-map("x", "<leader>r", function()
+local function search_selection()
   local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
   local escaped = vim.tbl_map(function(l) return vim.fn.escape(l, "\\/") end, lines)
-  vim.fn.setreg("/", "\\V\\C" .. table.concat(escaped, "\\n"))
+  local pattern = "\\V\\C" .. table.concat(escaped, "\\n")
+  -- whole lines only match whole lines
+  if vim.fn.mode() == "V" then
+    pattern = "^" .. pattern .. "\\m$"
+  end
+  vim.fn.setreg("/", pattern)
+end
+
+map("x", "<leader>r", function()
+  search_selection()
   vim.api.nvim_feedkeys(vim.keycode("<Esc>:%s///g<Left><Left>"), "n", false)
 end, { desc = "Replace selection in file" })
+
+map("x", "<leader>R", function()
+  search_selection()
+  vim.cmd("normal! \27")
+  local view = vim.fn.winsaveview()
+  vim.cmd([[%s//\=join(getreg('0', 1, 1), "\n")/ge]])
+  vim.fn.winrestview(view)
+end, { desc = "Replace selection in file with last yank" })
