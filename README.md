@@ -53,6 +53,8 @@ sudo pacman -S --needed neovim tree-sitter-cli ripgrep fd tig npm go rust rust-s
 
 The leader is `Space`: press it and wait for a menu of every binding.
 
+Searches open in a large popup with the code preview on top and the results and prompt below; `Ctrl-u` / `Ctrl-d` scroll the preview.
+
 ### French Mac AZERTY
 
 `[` and `]` need AltGr+Shift on this layout, so `ç` and `à` stand in for them: `àd` / `çd` next / previous diagnostic, `àh` / `çh` hunk, `àb` / `çb` buffer, `àq` / `çq` quickfix item. `jk` leaves Insert mode.

@@ -10,7 +10,7 @@ local function tig_show_line(bufnr, lnum)
   end
   local buf = vim.api.nvim_create_buf(false, true)
   vim.bo[buf].bufhidden = "wipe"
-  local width, height = math.floor(vim.o.columns * 0.9), math.floor(vim.o.lines * 0.85)
+  local width, height = math.floor(vim.o.columns * 0.95), math.floor(vim.o.lines * 0.95)
   local win = vim.api.nvim_open_win(buf, true, {
     relative = "editor",
     width = width,

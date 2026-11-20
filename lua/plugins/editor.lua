@@ -68,6 +68,10 @@ return {
       require("telescope").setup({
         defaults = {
           cache_picker = { num_pickers = 20, ignore_empty_prompt = true },
+          layout_strategy = "vertical",
+          layout_config = {
+            vertical = { width = 0.95, height = 0.95, preview_height = 0.6, preview_cutoff = 1 },
+          },
           mappings = {
             i = {
               ["<C-Up>"] = actions.cycle_history_prev,

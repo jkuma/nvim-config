@@ -24,7 +24,8 @@ local themes = {
 local function pick_theme()
   local before, background = vim.g.colors_name, vim.o.background
   local state, actions = require("telescope.actions.state"), require("telescope.actions")
-  local picker = require("telescope.pickers").new({}, {
+  local layout = require("telescope.themes").get_ivy({ layout_config = { height = #themes + 4 } })
+  local picker = require("telescope.pickers").new(layout, {
     prompt_title = "Colour theme",
     finder = require("telescope.finders").new_table({
       results = vim.list_extend({ before }, vim.tbl_filter(function(t) return t ~= before end, themes)),

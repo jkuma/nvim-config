@@ -9,7 +9,7 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
+      { "mason-org/mason.nvim", opts = { ui = { width = 0.95, height = 0.95 } } },
       "neovim/nvim-lspconfig",
     },
     config = function()
